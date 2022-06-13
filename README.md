@@ -2,6 +2,11 @@
 url to run app:
 <http://localhost:8080/docs#/>
 
+## sectrets.ini
+
+Secretes.ini is git ignored, and needs to be added and in place for the example make file to add the required environmental variables to the docker container.    
+A sample file named *secrets_backup.ini* is included in the framework to make adding the file and demoing easier
+
 To enable a container to access a service on the host, the solutioon is host OS specific. For OSX:
 <https://docs.docker.com/desktop/mac/networking/>
 
