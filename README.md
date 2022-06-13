@@ -61,11 +61,11 @@ Usually as part of cicd, container properties are passed at build time
 
 Create a secrets.ini file in the root of the project directory, and put variables into the file.
 
-APP_URL=<http://host.docker.internal:8080>  
+APP_URL=http://host.docker.internal:8080 
 ADMIN_USER=admin  
 ADMIN_PASSWORD=admin  
 
-replace literal string with os.getenv and empthy string as defaults in config.py file
+replace literal string with os.getenv and empty string as defaults in config.py file
 
 update docker local command to load secrets.ini file
 
