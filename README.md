@@ -1,4 +1,4 @@
-# Running an App to be tested, and a rest API testing framework in separate donctainers on the same host
+# Running an App to be tested, and a rest API testing framework in separate containers on the same host
 
 make is required to run locally and is used to orchestrate the docker commands to make setup and teardown simple 
 
