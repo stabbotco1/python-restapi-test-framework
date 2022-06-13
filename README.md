@@ -1,6 +1,17 @@
+# Running an App to be tested, and a rest API testing framework in separate donctainers on the same host
 
-url to run app:
-<http://localhost:8080/docs#/>
+make is required to run locally and is used to orchestrate the docker commands to make setup and teardown simple 
+
+## Starting the app container
+- navigate to the root of the basic-restapi-app directory
+- Start the App container by entering make run
+- Verify the fastAPI app is running by hitting the url: <http://localhost:8080/docs#/>
+
+## Starting the rest api automation framework container
+- Add a secrets.ini file to the project root directory by copying the contents of the secrets_backup.ini file 
+- Navigate to the root of the basic-restapi-testfwk directory
+- Start the container by entering make dev
+- Verify the pytest test suite runs by running pytest in the test api terminal
 
 ## sectrets.ini
 
