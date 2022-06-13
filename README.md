@@ -5,27 +5,28 @@ url to run app:
 To enable a container to access a service on the host, the solutioon is host OS specific. For OSX:
 <https://docs.docker.com/desktop/mac/networking/>
 
-I want to connect from a container to a service on the host
-The host has a changing IP address (or none if you have no network access). We recommend that you connect to the special DNS name host.docker.internal which resolves to the internal IP address used by the host. This is for development purpose and will not work in a production environment outside of Docker Desktop for Mac.
+> ## I want to connect from a container to a service on the host (OSX instructions)
 
-You can also reach the gateway using gateway.docker.internal.
+> - The host has a changing IP address (or none if you have no network access). We recommend that you connect to the special DNS name host.docker.internal which resolves to the internal IP address used by the host. This is for development purpose and will not work in a production environment outside of Docker Desktop for Mac.
 
-If you have installed Python on your machine, use the following instructions as an example to connect from a container to a service on the host:
+> - You can also reach the gateway using gateway.docker.internal.
 
-Run the following command to start a simple HTTP server on port 8000.
+> - If you have installed Python on your machine, use the following instructions as an example to connect from a container to a service on the host:
 
-python -m http.server 8000
+> - Run the following command to start a simple HTTP server on port 8000.
 
-If you have installed Python 2.x, run python -m SimpleHTTPServer 8000.
+> - $ python -m http.server 8000
 
-Now, run a container, install curl, and try to connect to the host using the following commands:
+> If you have installed Python 2.x, run python -m SimpleHTTPServer 8000.
 
- docker run --rm -it alpine sh
- apk add curl
- curl <http://host.docker.internal:8000>
- exit
+> - Now, run a container, install curl, and try to connect to the host using the following commands:
 
-so on a mac, localhost needs to be changed to host.docker.internal in config.py
+ - $ docker run --rm -it alpine sh
+ - $ apk add curl
+ - $ curl <http://host.docker.internal:8000>
+ - $ exit
+
+> so on a mac, localhost needs to be changed to host.docker.internal in config.py
 
 ## .dockerignore
 
@@ -61,7 +62,7 @@ Usually as part of cicd, container properties are passed at build time
 
 Create a secrets.ini file in the root of the project directory, and put variables into the file.
 
-APP_URL=http://host.docker.internal:8080 
+APP_URL=<http://host.docker.internal:8080>
 ADMIN_USER=admin  
 ADMIN_PASSWORD=admin  
 
@@ -70,4 +71,3 @@ replace literal string with os.getenv and empty string as defaults in config.py 
 update docker local command to load secrets.ini file
 
 docker run $(LOCAL_OPTS) --name $(NAME) --env-file secrets.ini -it $(IMAGE) /bin/bash
-
